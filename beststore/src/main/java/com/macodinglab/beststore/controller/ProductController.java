@@ -1,6 +1,7 @@
 package com.macodinglab.beststore.controller;
 
 
+import com.macodinglab.beststore.dto.ProductDto;
 import com.macodinglab.beststore.models.Product;
 import com.macodinglab.beststore.repository.ProductsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,12 @@ public class ProductController {
         return "products/index";
     }
 
-
+    @GetMapping("/create")
+    public String showCreatePage(Model model) {
+        ProductDto productDto = new ProductDto();
+        model.addAttribute("productDto", productDto);
+        return"products/createProduct";
+    }
 
 
 
